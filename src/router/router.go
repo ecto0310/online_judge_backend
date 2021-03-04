@@ -15,6 +15,7 @@ func InitRouter() *echo.Echo {
 	r.Use(middleware.Recover())
 
 	r.POST("/register", users.Register)
+	r.POST("/login", users.Login)
 
 	return r
 }
