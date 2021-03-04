@@ -15,3 +15,7 @@ func newSession(user User) string {
 func destroySession(sessionId string) {
 	sessionDic[sessionId] = User{Id: -1}
 }
+
+func CheckSession(user User, sessionId string) bool {
+	return sessionDic[sessionId] == user
+}
