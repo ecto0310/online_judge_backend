@@ -58,3 +58,12 @@ func Login(c echo.Context) error {
 	c.SetCookie(&cookie)
 	return c.JSON(http.StatusOK, Response{Success: true, User: user})
 }
+
+func Logout(c echo.Context) error {
+	sessionId, err := c.Cookie("session")
+	if err != nil {
+		return c.JSON(http.StatusUnprocessableEntity, Response{Error: "Invalid data"})
+	}
+	destroySession(sessionId.Value)
+	return c.JSON(http.StatusOK, Response{Success: true})
+}

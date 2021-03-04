@@ -16,6 +16,7 @@ func InitRouter() *echo.Echo {
 
 	r.POST("/register", users.Register)
 	r.POST("/login", users.Login)
+	r.POST("/logout", users.Logout)
 
 	return r
 }

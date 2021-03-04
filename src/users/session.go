@@ -11,3 +11,7 @@ func newSession(user User) string {
 	sessionDic[sessionID] = user
 	return sessionID
 }
+
+func destroySession(sessionId string) {
+	sessionDic[sessionId] = User{Id: -1}
+}
